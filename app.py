@@ -21,8 +21,10 @@ def add_movies():
     director = input("Enter the movie director: ")
     year = input("Enter the movie release year: ")
 
+    title_lower = lambda x: x.lower()
+
     new_movie = {
-        'title': title,
+        'title': title_lower(title),
         'director': director,
         'year': year
     }
@@ -45,7 +47,7 @@ def list_movies():
 def find_movie():
     user_question = input("Which title are you searching?")
     for movie in movies:
-        if title == movie['title']:
+        if user_question.lower() == movie['title']:
             print_movies(movie)
 
 
@@ -68,6 +70,7 @@ def menu():
             print('Unknown command. Please try again.')
 
         selection = input(MENU_PROMPT)
+
 
 # Remember to run the user menu function at the end!
 menu()
